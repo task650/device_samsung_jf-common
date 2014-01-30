@@ -134,11 +134,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
+# QRNGD
+PRODUCT_PACKAGES += qrngd
+
 # Prepatch to fix BT/WiFi bus lockups
 PRODUCT_COPY_FILES += device/samsung/jf-common/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
 
 #common build.props
 PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
     ro.chipname=apq8064 \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10 \
@@ -185,7 +189,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_3="" \
     ro.telephony.ril.v3=newDriverCall \
     persist.audio.lowlatency.rec=true \
-    af.resampler.quality=4
+    af.resampler.quality=4 \
+    dalvik.vm.dexopt-data-only=0
 
 # call common msm8960
 $(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
