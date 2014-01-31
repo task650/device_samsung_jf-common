@@ -108,6 +108,10 @@ PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
     device/samsung/jf-common/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf
 
+#Build DeviceParts
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 # Sensors
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
